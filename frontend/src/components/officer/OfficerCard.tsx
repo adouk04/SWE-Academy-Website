@@ -3,7 +3,7 @@ import type { OfficerCardProps } from './officer.types';
 
 export const OfficerCard = (props: OfficerCardProps) => {
     return (
-        <Card style={{ width: '18rem', backgroundColor: "#ffffff"}}>
+        <Card style={{ width: '18rem', backgroundColor: '#ffffff'}}>
           <Card.Img variant="top" src={props.image} style={{ maxHeight: "300px"}}/>
 
           <Card.Body style={{ padding: "10px" }}>

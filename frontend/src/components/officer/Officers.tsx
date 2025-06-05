@@ -1,42 +1,35 @@
 import { OfficerCard } from "./OfficerCard";
-import DuyImg from '../../assets/officerPics/DuyImg.jpeg';
-import AlexImg from '../../assets/officerPics/AlexImg.jpeg';
-import YusufImg from '../../assets/officerPics/YusufImg.jpeg';
+import { Nav } from "react-bootstrap";
+import { useState } from "react";
+import { officer24_25, officer25_26 } from './officerData';
 
-const officerData = [
-  {
-    image: AlexImg,
-    title: 'President',
-    name: 'Alex Douk',
-    linkedin: 'https://www.linkedin.com/in/alex-douk1/',
-    github: 'https://github.com/adouk04'
-  },
-  {
-    image: YusufImg,
-    title: 'Vice President',
-    name: 'Yusuf Shakhpaz',
-    linkedin: 'https://www.linkedin.com/in/yusufshakhpaz/',
-    github: 'https://github.com/Shakhpazy'
-  },
-  {
-    image: DuyImg,
-    title: 'Officer',
-    name: 'Nhat-Duy Ly',
-    linkedin: 'https://www.linkedin.com/in/ndly/',
-    github: 'https://github.com/notduyly'
-  }
-]
+type YearKey = '24_25' | '25_26';
 
 export const Officers = () => {
+  const [activeTab, setActiveTab] = useState<YearKey>('25_26');
+  
+  const officerData = {
+    '25_26': officer25_26,
+    '24_25': officer24_25
+  };
+
   return (
     <div className="container mt-4">
-      <h1>Officers</h1>
-      <p>Meet the team behind SWE Academy!</p>
+      <h1 className='mb-4'>Officers</h1>
 
-      <div className='d-flex'>
-        {officerData.map(officer => (
-          <OfficerCard {...officer} />
-        ))}
+      <Nav variant="tabs" defaultActiveKey={activeTab} onSelect={(key) => key && setActiveTab(key as YearKey)}>
+        <Nav.Item>
+          <Nav.Link eventKey='25_26'>25 - 26</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey='24_25'>24 - 25</Nav.Link>
+        </Nav.Item>
+      </Nav>
+
+      <div className='d-flex flex-wrap justify-content-evenly mt-4'>
+        {officerData[activeTab].map(officer => 
+          <OfficerCard key={officer.name} {...officer} />
+        )}
       </div>
     </div>
   );
