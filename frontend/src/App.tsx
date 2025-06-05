@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Header } from './components/header/Header'
-import { Officers } from './components/body/Officers'
+import { Header } from './components/Header'
+import { Officers } from './components/officer/Officers'
 
 export const App = () => {
 
