@@ -1,5 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import type { OfficerCardProps } from './officer.types';
+import './OfficerCard.css';
 
 export const OfficerCard = (props: OfficerCardProps) => {
     return (
@@ -12,8 +13,8 @@ export const OfficerCard = (props: OfficerCardProps) => {
             <div className="d-flex align-items-center gap-3">
             
             {props.linkedin && (
-              <a href={props.linkedin} target="_blank" rel="noopener noreferrer">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#0a66c2" className="bi bi-linkedin"viewBox="0 0 16 16">
+              <a href={props.linkedin} className="social-icon linkedin-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#0a66c2" className="bi bi-linkedin" viewBox="0 0 16 16">
                   <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 
                     16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 
                     1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 
@@ -30,9 +31,8 @@ export const OfficerCard = (props: OfficerCardProps) => {
               </a>
             )}
 
-            {/* GitHub */}
             {props.github && (
-              <a href={props.github} target="_blank" rel="noopener noreferrer">
+              <a href={props.github} className="social-icon github-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000000" className="bi bi-github" viewBox="0 0 16 16">
                   <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 
                     2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 

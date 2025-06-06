@@ -1,0 +1,17 @@
+.social-icon {
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+.linkedin-icon:hover svg {
+  fill: #0077b5;
+}
+
+.github-icon:hover svg {
+  fill: #333;
+}
