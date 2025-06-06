@@ -1,5 +1,5 @@
 import { OfficerCard } from "./OfficerCard";
-import { Nav } from "react-bootstrap";
+import { Container, Nav } from "react-bootstrap";
 import { useState } from "react";
 import { officer24_25, officer25_26 } from './officerData';
 
@@ -11,6 +11,11 @@ export const Officers = () => {
   const officerData = {
     '25_26': officer25_26,
     '24_25': officer24_25
+  };
+
+  const gridConfig = {
+    '25_26': 'col-lg-4 col-md-6 col-sm-12', // 3 columns per row
+    '24_25': 'col-lg-3 col-md-6 col-sm-12'  // 4 columns per row
   };
 
   return (
@@ -26,11 +31,15 @@ export const Officers = () => {
         </Nav.Item>
       </Nav>
 
-      <div className='d-flex flex-wrap justify-content-evenly mt-4'>
-        {officerData[activeTab].map(officer => 
-          <OfficerCard key={officer.name} {...officer} />
-        )}
-      </div>
+      <Container className="py-4">
+        <div className="row">
+          {officerData[activeTab].map(officer => (
+            <div className={`${gridConfig[activeTab]} mb-4 d-flex justify-content-center`} >
+              <OfficerCard key={officer.name} {...officer} />
+            </div>
+          ))}
+        </div>
+      </Container>
     </div>
   );
 };

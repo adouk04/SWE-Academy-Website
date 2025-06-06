@@ -9,6 +9,9 @@ import ZafarImg from '../../assets/officerPics24_25/ZafarImg.png';
 import DuyImg from '../../assets/officerPics25_26/DuyImg.jpeg';
 import AlexImg from '../../assets/officerPics25_26/AlexImg.jpeg';
 import YusufImg from '../../assets/officerPics25_26/YusufImg.jpeg';
+import ZaidaanImg from '../../assets/officerPics25_26/ZaidaanImg.jpeg';
+import SungminImg from '../../assets/officerPics25_26/SungminImg.jpeg';
+import SaeedImg from '../../assets/officerPics25_26/SaeedImg.jpeg';
 
 
 export const officer25_26 = [
@@ -32,6 +35,25 @@ export const officer25_26 = [
     name: 'Nhat-Duy Ly',
     linkedin: 'https://www.linkedin.com/in/ndly/',
     github: 'https://github.com/notduyly'
+  },
+  {
+    image: ZaidaanImg,
+    title: 'Officer',
+    name: 'Zaidaan Shibuya',
+    linkedin: 'https://www.linkedin.com/in/zaidaan-shibuya-9a42ba237/',
+  },
+  {
+    image: SungminImg,
+    title: 'Officer',
+    name: 'Sungmin Cha',
+    linkedin: 'https://www.linkedin.com/in/sungmin-cha-401101245/',
+    github: 'https://github.com/leaf482'
+  },
+  {
+    image: SaeedImg,
+    title: 'Officer',
+    name: 'Saeed Esparza',
+    linkedin: 'https://www.linkedin.com/in/saeedesparza/',
   },
 ];
 
