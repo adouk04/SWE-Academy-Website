@@ -1,0 +1,11 @@
+:root {
+  --offwhite-bg: #f6f3ee;
+}
+
+.bg-offwhite {
+  background-color: var(--offwhite-bg) !important;
+}
+
+body {
+  background-color: var(--offwhite-bg);
+}

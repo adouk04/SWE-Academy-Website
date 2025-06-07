@@ -1,0 +1,51 @@
+.header-navbar .container {
+  max-width: 100%;
+  padding-left: 3vw;
+  padding-right: 3vw;
+}
+
+body {
+  padding-top: 54px;
+}
+
+.header-navbar {
+  transition: all 0.3s ease;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent !important;
+  padding: 1rem 0;
+  min-height: 50px;
+}
+
+.header-navbar.scrolled {
+  border-radius: 12px;
+  margin: 4px 3vw;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: white !important;
+  padding: 0.5rem 0;
+  margin-top: 0.5rem;
+}
+
+.clickable-logo {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.nav-link {
+  color: #333;
+  transition: color 0.2s ease;
+  font-size: 1.1rem;
+  padding: 0.5rem 0.8rem !important;
+}
+
+.nav-link:hover {
+  color: #666;
+}
+
+.navbar-toggler {
+  padding: 0.8rem;
+  font-size: 1.2rem;
+} 
