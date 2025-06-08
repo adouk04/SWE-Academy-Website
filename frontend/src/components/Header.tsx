@@ -1,10 +1,14 @@
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container, NavDropdown, Button } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import '../styles/Header.css';
+import { FaUser } from 'react-icons/fa';
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
+  // Temp variable for logged in status. CHANGED LATER TO FIREBASE AUTH
+  const loggedIn = true;
+  
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -16,12 +20,7 @@ export const Header = () => {
   }, []);
 
   return (
-    <Navbar 
-      bg='white' 
-      data-bs-theme="light" 
-      fixed="top"
-      className={`header-navbar ${isScrolled ? 'scrolled' : ''}`}
-    >
+    <Navbar bg='white' data-bs-theme="light" fixed="top"className={`header-navbar ${isScrolled ? 'scrolled' : ''}`}>
       <Container>
         <Navbar.Brand href="/" className="clickable-logo">swe_academy</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -30,6 +29,14 @@ export const Header = () => {
                 <Nav.Link href="/about">About</Nav.Link>
                 <Nav.Link href="/events">Events</Nav.Link>
                 <Nav.Link href="/officers">Officers</Nav.Link>
+              
+                {loggedIn ? (
+                  <NavDropdown title={<FaUser />} id="basic-nav-dropdown">
+                    <NavDropdown.Item href="/logout">Logout</NavDropdown.Item>
+                  </NavDropdown>
+                ) : (
+                  <Nav.Link href='/login' className="sign-in-link">Sign In</Nav.Link>
+                )}
             </Nav>
         </Navbar.Collapse>
       </Container>

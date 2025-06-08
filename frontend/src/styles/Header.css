@@ -48,4 +48,28 @@ body {
 .navbar-toggler {
   padding: 0.8rem;
   font-size: 1.2rem;
+}
+
+.sign-in-link {
+  border: 2px solid #000;
+  border-radius: 4px;
+  padding: 6px 16px !important;
+  margin-left: 10px;
+  transition: all 0.3s ease;
+}
+
+.sign-in-link:hover {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.navbar .dropdown-menu {
+  position: absolute;
+  right: 0;
+  left: auto;
+  margin-top: 0.5rem;
+}
+
+.navbar .dropdown-menu.show {
+  display: block;
 } 
