@@ -34,8 +34,8 @@ export const Officers = () => {
       <Container className="py-4">
         <div className="row">
           {officerData[activeTab].map(officer => (
-            <div className={`${gridConfig[activeTab]} mb-4 d-flex justify-content-center`} >
-              <OfficerCard key={officer.name} {...officer} />
+            <div key={officer.name} className={`${gridConfig[activeTab]} mb-4 d-flex justify-content-center`} >
+              <OfficerCard {...officer} />
             </div>
           ))}
         </div>
