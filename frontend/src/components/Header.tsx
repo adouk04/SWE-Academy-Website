@@ -42,7 +42,6 @@ export const Header = () => {
               
                 {currentUser ? (
                   <NavDropdown title={<FaUser />} id="basic-nav-dropdown">
-                    <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
                     <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
                   </NavDropdown>
                 ) : (

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Card, Form, Button, Alert } from 'react-bootstrap';
 import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import GoogleButton from 'react-google-button';
 
 export const Login = () => {
   const [email, setEmail] = useState('');
@@ -10,7 +11,7 @@ export const Login = () => {
   const [loading, setLoading] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
 
-  const { login, signup } = useAuth();
+  const { login, signup, loginWithGoogle } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -38,6 +39,17 @@ export const Login = () => {
     setLoading(false);
   };
 
+  const handleGoogleLogin = async() => {
+    try {
+      setError('');
+      setLoading(true);
+      await loginWithGoogle();
+      navigate('/');
+    } catch (error: any) {
+      setError(`Failed to sign in with Google: ${error.message}`);
+    }
+    setLoading(false);
+  }
   return (
     <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
       <div className="w-100" style={{ maxWidth: '400px' }}>
@@ -45,7 +57,7 @@ export const Login = () => {
           <Card.Body>
             <h2 className="text-center mb-4">{isSignUp ? 'Sign Up' : 'Log In'}</h2>
             {error && <Alert variant="danger">{error}</Alert>}
-            
+
             <Form onSubmit={handleSubmit}>
               <Form.Group className="mb-3">
                 <Form.Label>Email</Form.Label>
@@ -62,11 +74,21 @@ export const Login = () => {
               </Button>
             </Form>
             
+            <div className='m-3'>
+              <GoogleButton
+                onClick={handleGoogleLogin}
+                disabled={loading}
+                style={{ width: '100%' }}
+              />
+            </div>
+
             <div className="w-100 text-center mt-3">
               <Button variant="link" onClick={() => setIsSignUp(!isSignUp)}>
                 {isSignUp ? 'Log In' : 'Sign Up'}
               </Button>
             </div>
+
+            
           </Card.Body>
         </Card>
       </div>
