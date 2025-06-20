@@ -5,7 +5,7 @@ import { Home } from './components/home/Home';
 import { Footer } from './components/Footer';
 import { Login } from './components/login/Login';
 import { AuthProvider } from './context/AuthContext';
-import { Events } from './components/event/Events';
+import { Events } from './components/events/Events'
 
 export const App = () => {
 
@@ -16,8 +16,8 @@ export const App = () => {
         <Routes>
           <Route path='/login' element={<Login />} />
           <Route path='/' element={<Home />}/>
-          <Route path='/officers' element={<Officers />} />
-          <Route path='/events' element={<Events />} />
+          <Route path='/officers' element={<Officers/>} />
+          <Route path='/events' element= {<Events/>} />
         </Routes>
         <Footer />
       </BrowserRouter>
