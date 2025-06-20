@@ -54,14 +54,14 @@ h2 {
   border-radius: 10px;
 }
 
-a {
-    width: 50%;
-}
+
 
 .btn-left-corner {
   border-radius: 0px 0px 0px 10px; /* top-left only */
+  width: 50%;
 }
 
 .btn-right-corner {
   border-radius: 0px 0px 10px 0px; /* top-right only */
+  width: 50%;
 }

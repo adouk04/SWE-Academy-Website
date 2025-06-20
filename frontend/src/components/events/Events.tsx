@@ -1,5 +1,5 @@
 import {Container, Row, Col,} from "react-bootstrap";
-import GoogleCalendar from "./GoogleCalendar"
+import { GoogleCalendar } from "./GoogleCalendar";
 import { EventCard } from "./EventCard";
 
 export const Events = () => {
@@ -13,9 +13,10 @@ export const Events = () => {
             </p>
             </Col>
         </Row>
-        
+
         <EventCard/>
         
+        <GoogleCalendar/>
 
     </Container>
   );

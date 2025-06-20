@@ -1,11 +1,10 @@
 import { Row, Col, Card } from "react-bootstrap";
 import "./googleCalendar.css"
 
-export const googleCalendar = () => {
+export const GoogleCalendar = () => {
     return (
-        <Row className="justify-content-center mb-5">
             <Col md={10} xxl={8}>
-                <Card className="shadow">
+                <Card>
                 <Card.Body>
                     <div className="calendar-wrapper">
                     <iframe
@@ -16,8 +15,6 @@ export const googleCalendar = () => {
                 </Card.Body>
                 </Card>
             </Col>
-        </Row>
+
     );
 };
-
-export default googleCalendar;
