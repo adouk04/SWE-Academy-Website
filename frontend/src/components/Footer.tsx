@@ -3,6 +3,7 @@ import { FaDiscord } from 'react-icons/fa';
 import './officer/OfficerCard.css';
 
 export const Footer = () => {
+
   return (
     <footer>
       <Navbar bg="offwhite" variant="light" expand="lg" className="header-container">
@@ -12,7 +13,7 @@ export const Footer = () => {
           </a>
 
           <Navbar.Text className="mt-3 small text-dark">
-            © swe_academy 2025
+            © GitHired {new Date().getFullYear()}
           </Navbar.Text>
         </Container>
       </Navbar>
