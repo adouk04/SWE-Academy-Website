@@ -4,6 +4,7 @@ import '../styles/Header.css';
 import { FaUser } from 'react-icons/fa';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import GitHiredLogo from '../assets/GitHiredLogo.png';
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,7 +33,9 @@ export const Header = () => {
   return (
     <Navbar bg='white' data-bs-theme="light" fixed="top" className={`header-navbar ${isScrolled ? 'scrolled' : ''}`}>
       <Container>
-        <Navbar.Brand href="/" className="clickable-logo">swe_academy</Navbar.Brand>
+        <Navbar.Brand href="/" className="clickable-logo">
+          <img alt="GitHired Logo" src={GitHiredLogo} className='logo-size'/>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
