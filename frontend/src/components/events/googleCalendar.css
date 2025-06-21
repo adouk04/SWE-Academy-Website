@@ -1,21 +1,16 @@
 .iframecal {
     border: none;
     border-radius: 10px;
-    height: 700px;
+    height: 100%;
     min-height: 20rem;
     overflow: hidden;
     transition: all .3s ease;
     width: 100%;
 }
 
-
-.iframecal:hover {
-      transform: translateY(-10px); /* Moves the element up by 10px */
-}
-
 @media (max-width: 1076px) {
     .iframecal {
-        height: auto;
-        width: 90%;
+        height: 100%;
+        width: 100%;
     }
 }

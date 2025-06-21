@@ -1,76 +1,108 @@
-import {Container, Row, Col} from "react-bootstrap";
+import {Container, Row, Col, Badge} from "react-bootstrap";
 import { GoogleCalendar } from "./GoogleCalendar";
 import { EventCard } from "./EventCard";
 import { events } from "./testdata"
 import { useState } from "react";
 import type { eventsCardProps, eventsPropList } from "./event.types";
 import Carousel from 'react-bootstrap/Carousel';
-
+import { FaCalendarAlt, FaMapMarkerAlt, FaUsers, FaClock } from 'react-icons/fa';
+import "./events.css";
 
 export const Events = () => {
 
     const [eventsData, setEventsData] = useState<eventsPropList>(events)
 
     return(
-    <div className="bg-offwhite">
-        <Container fluid className="mt-5">
-            <Row className="justify-content-center text-center mb-5">
-                <Col lg={8}>
-                    <h1 className="display-4 fw-bold mb-3">Club Calendar</h1>
-                    <p className="lead mb-4">
-                        Stay updated with upcoming meetings, workshops, and socials.
-                    </p>
-                    <div className="row text-center">
-                        <div className="col-md-4 mb-3">
-                            <h4 className="fw-bold">12+</h4>
-                            <p className="text-muted">Events This Year</p>
+    <div className="events-page">
+        {/* Hero Section */}
+        <div className="events-hero">
+            <Container>
+                <Row className="justify-content-center text-center">
+                    <Col lg={8} md={10}>
+                        <div className="hero-content">
+                            <Badge bg="dark" className="mb-3 px-3 py-2">Events & Activities</Badge>
+                            <h1 className="hero-title">Stay Connected with SWE Academy</h1>
+                            <p className="hero-subtitle">
+                                Join us for exciting workshops, networking events, hackathons, and social gatherings. 
+                                Discover opportunities to grow your skills and connect with fellow engineers.
+                            </p>
+                            <div className="hero-stats">
+                                <div className="stat-item">
+                                    <FaCalendarAlt className="stat-icon" />
+                                    <span className="stat-number">12+</span>
+                                    <span className="stat-label">Events This Year</span>
+                                </div>
+                                <div className="stat-item">
+                                    <FaMapMarkerAlt className="stat-icon" />
+                                    <span className="stat-number">1</span>
+                                    <span className="stat-label">Locations</span>
+                                </div>
+                                <div className="stat-item">
+                                    <FaUsers className="stat-icon" />
+                                    <span className="stat-number">200+</span>
+                                    <span className="stat-label">Members</span>
+                                </div>
+                            </div>
                         </div>
-                        <div className="col-md-4 mb-3">
-                            <h4 className="fw-bold">5</h4>
-                            <p className="text-muted">Locations</p>
+                    </Col>
+                </Row>
+            </Container>
+        </div>
+
+        {/* Main Content */}
+        <Container className="events-main-content">
+            <Row className="mt-5">
+                {/* Calendar Section */}
+                <Col lg={7} md={12} className="mb-5">
+                    <div className="calendar-section">
+                        <div className="section-header">
+                            <h2 className="section-title">
+                                <FaCalendarAlt className="title-icon" />
+                                Club Calendar
+                            </h2>
+                            <p className="section-description">
+                                View all upcoming events, meetings, and important dates in our interactive calendar.
+                            </p>
                         </div>
-                        <div className="col-md-4 mb-3">
-                            <h4 className="fw-bold">500+</h4>
-                            <p className="text-muted">Members</p>
+                        <div className="calendar-container">
+                            <GoogleCalendar />
+                        </div>
+                    </div>
+                </Col>
+
+                {/* Events Carousel Right Side - KEEPING YOUR ORIGINAL DESIGN */}
+                <Col lg={5} md={12} className="mb-5">
+                    <div className="featured-events-section">
+                        <div className="section-header">
+                            <h2 className="section-title">
+                                <FaClock className="title-icon" />
+                                Featured Events
+                            </h2>
+                            <p className="section-description">
+                                Don't miss these upcoming highlights and special events.
+                            </p>
+                        </div>
+                        <div className="events-carousel-container">
+                            <Carousel fade interval={3000} className="w-100">
+                                {eventsData.map((e, index) => (
+                                <Carousel.Item key={index}>
+                                    <div
+                                    style={{
+                                        minHeight: '420px',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                    }}
+                                    >
+                                    <EventCard {...e} />
+                                    </div>
+                                </Carousel.Item>
+                                ))}
+                            </Carousel>
                         </div>
                     </div>
                 </Col>
             </Row>
-            
-
-            {/* <Container className="mt-5">
-                <GoogleCalendar/>
-            </Container> */}
-
-            <Row className="mt-4 px-3">
-                {/* Calendar Left Side */}
-                <Col lg={7} md={12} className="mb-4">
-                    <div className="p-3 shadow rounded h-100">
-                    <GoogleCalendar />
-                    </div>
-                </Col>
-
-                {/* Events Carousel Right Side */}
-                <Col lg={5} md={12} className="mb-4 d-flex align-items-center justify-content-center">
-                <Carousel fade interval={3000} className="w-100" style={{ maxWidth: '500px' }}>
-                    {eventsData.map((e, index) => (
-                    <Carousel.Item key={index}>
-                        <div
-                        style={{
-                            minHeight: '420px',
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                        }}
-                        >
-                        <EventCard {...e} />
-                        </div>
-                    </Carousel.Item>
-                    ))}
-                </Carousel>
-                </Col>
-            </Row>
-
         </Container>
     </div>
   );
