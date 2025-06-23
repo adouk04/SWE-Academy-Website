@@ -36,21 +36,24 @@ export const Header = () => {
         <Navbar.Brand href="/" className="clickable-logo">
           <img alt="GitHired Logo" src={GitHiredLogo} className='logo-size'/>
         </Navbar.Brand>
+        
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto">
-                <Nav.Link href="/about">About</Nav.Link>
-                <Nav.Link href="/events">Events</Nav.Link>
-                <Nav.Link href="/officers">Officers</Nav.Link>
-              
-                {currentUser ? (
-                  <NavDropdown title={<FaUser />} id="basic-nav-dropdown">
-                    <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
-                  </NavDropdown>
-                ) : (
-                  <Nav.Link href='/login' className="sign-in-link">Sign In</Nav.Link>
-                )}
-            </Nav>
+          <Nav className="mx-auto">
+            <Nav.Link href="/about">About</Nav.Link>
+            <Nav.Link href="/events">Events</Nav.Link>
+            <Nav.Link href="/officers">Officers</Nav.Link>
+          </Nav>
+          
+          <Nav>
+            {currentUser ? (
+              <NavDropdown title={<FaUser />} id="basic-nav-dropdown">
+                <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
+              </NavDropdown>
+            ) : (
+              <Nav.Link href='/login' className="sign-in-link">Sign In</Nav.Link>
+            )}
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
