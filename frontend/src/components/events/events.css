@@ -76,7 +76,7 @@
 .stat-icon {
     font-size: 2rem;
     margin-bottom: 0.5rem;
-    color: #ffd700;
+    color: #119ef5;
 }
 
 .stat-number {
@@ -164,7 +164,7 @@
 .events-carousel-container .carousel-control-prev,
 .events-carousel-container .carousel-control-next {
     position: absolute;
-    top: 50%;
+    top: 60%;
     transform: translateY(-50%);
     width: 50px;
     height: 50px;
@@ -177,12 +177,24 @@
     z-index: 10;
 }
 
-.events-carousel-container .carousel-control-prev {
-    left: 10px;
+@media (max-width: 1399px) and (min-width: 992px) {
+    .events-carousel-container .carousel-control-prev {
+        left: 10%;
+    }
+    
+    .events-carousel-container .carousel-control-next {
+        right: 10%;
+    }
 }
 
-.events-carousel-container .carousel-control-next {
-    right: 10px;
+@media (max-width: 1199px) and (min-width: 768px) {
+    .events-carousel-container .carousel-control-prev {
+        left: 5%;
+    }
+    
+    .events-carousel-container .carousel-control-next {
+        right: 5%;
+    }
 }
 
 .events-carousel-container .carousel-control-prev:hover,
@@ -229,8 +241,8 @@
     
     .events-carousel-container .carousel-control-prev,
     .events-carousel-container .carousel-control-next {
-        width: 45px;
-        height: 45px;
+        width: 42px;
+        height: 42px;
     }
 }
 
