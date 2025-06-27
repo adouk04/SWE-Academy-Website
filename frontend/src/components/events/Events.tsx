@@ -2,8 +2,9 @@ import {Container, Row, Col, Badge} from "react-bootstrap";
 import { GoogleCalendar } from "./GoogleCalendar";
 import { EventCard } from "./EventCard";
 import { events } from "./testdata"
-import { useState } from "react";
-import type { eventsCardProps, eventsPropList } from "./event.types";
+import { EventForm } from "./EventForm";
+import { useEffect, useState } from "react";
+import type { eventsPropList } from "./event.types";
 import Carousel from 'react-bootstrap/Carousel';
 import { FaCalendarAlt, FaMapMarkerAlt, FaUsers, FaClock } from 'react-icons/fa';
 import "./events.css";
@@ -11,6 +12,18 @@ import "./events.css";
 export const Events = () => {
 
     const [eventsData, setEventsData] = useState<eventsPropList>(events)
+
+    useEffect( () => {
+        fetch("http://localhost:3000/events")
+        .then(response => response.json())
+        .then((data) => {
+            if (data && data.length > 0) {
+                setEventsData(data);
+            }
+        })
+        .catch(error => console.error("Error fetching data from server:", error));
+    }, [])
+
 
     return(
     <div className="events-page">
@@ -102,6 +115,18 @@ export const Events = () => {
                         </div>
                     </div>
                 </Col>
+            </Row>
+        </Container>
+
+        {/* admin previl */}
+        <Container className="">
+            <Row className="justify-content-center">
+                <div className="formsection add-event-section text-center">
+                    <h1 className="add-event-title ">Add New Event</h1>
+                    <div className="add-event-form-container w-50 mx-auto mt-4">
+                        <EventForm />
+                    </div>
+                </div>
             </Row>
         </Container>
     </div>
