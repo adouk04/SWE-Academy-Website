@@ -7,3 +7,5 @@ export interface eventsCardProps {
     year : String,
     image : string,
 }
+
+export type eventsPropList = eventsCardProps[]
