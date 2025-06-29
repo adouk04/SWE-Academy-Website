@@ -35,6 +35,27 @@ app.get("/events", async (req, res) => {
     }
 });
 
+app.post("/events", async (req, res) => {
+    const { event, location, image, day, month, year, weekDay } = req.body;
+    try {
+        const payload = {
+        event,
+        location,
+        image,
+        day,
+        month,
+        year,
+        weekDay,
+        };
+        console.log(payload)
+        const docRef = await db.collection('featuredEvents').add(payload);
+        res.status(201).json({ id: docRef.id, message: 'Event saved successfully' });
+    } catch (error) {
+        console.error('Error retrieving data:', error);
+        res.status(500).send('Error retrieving data');
+    }
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
