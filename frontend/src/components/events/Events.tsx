@@ -122,7 +122,7 @@ export const Events = () => {
 
         {/* admin previl */}
 
-        { user.currentUser?.uid === import.meta.env.VITE_ADMIN_UID && (
+        { (user.currentUser?.uid === import.meta.env.VITE_ADMIN_UID) && (
             <Container className="">
                 <Row className="justify-content-center">
                     <div className="formsection add-event-section text-center">
@@ -133,7 +133,8 @@ export const Events = () => {
                     </div>
                 </Row>
 
-                <Row className="justify-content-center">
+                { (eventsData[0].event !== "No Current Events") && (
+                    <Row className="justify-content-center">
                     <div className="formsection add-event-section text-center">
                         <h1 className="add-event-title ">Manage Events</h1>
                         <div className="add-event-form-container w-50 mx-auto mt-4">
@@ -142,9 +143,10 @@ export const Events = () => {
                                     <EventList {...e}></EventList>
                                 </div>
                             ))}
+                            </div>
                         </div>
-                    </div>
-                </Row>
+                    </Row>
+                )}
             </Container>
 
         )
