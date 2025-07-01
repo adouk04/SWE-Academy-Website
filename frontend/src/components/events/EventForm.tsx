@@ -44,6 +44,12 @@ export const EventForm = () => {
       })
       console.log(response)
       if (!response.ok) throw new Error("Faild to submit properly")
+      else if (response.status === 202) {
+        alert("Item already exists")
+      }
+      else {
+        document.location.reload();
+      }
     } catch (error) {
       console.log("error occured: ", error)
     }

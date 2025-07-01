@@ -47,7 +47,11 @@ app.post("/events", async (req, res) => {
         year,
         weekDay,
         };
-        console.log(payload)
+        // Check if the event already exists
+        const checkexisting = await db.collection('/featuredEvents').where('event', '==', event).get();
+        if (!checkexisting.empty) {
+            return res.status(202).json({ message: 'Item existing' });
+        }
         const docRef = await db.collection('featuredEvents').add(payload);
         res.status(201).json({ id: docRef.id, message: 'Event saved successfully' });
     } catch (error) {
@@ -56,14 +60,26 @@ app.post("/events", async (req, res) => {
     }
 });
 
-app.delete("/events", async (req, res) => {
+app.delete("/events/:eventName", async (req, res) => {
+    const { eventName } = req.params;
     try {
-        
-    } catch (error) {
-        
-    }
+        const snapshot = await db.collection('/featuredEvents').where('event', '==', eventName).get();
+        if (snapshot.empty) {
+            return res.status(404).json({ message: 'Event not found' });
+        }
+        const batch = db.batch(); 
 
-    return
+        snapshot.forEach((doc) => {
+        batch.delete(doc.ref);
+        });
+
+        await batch.commit();
+
+        res.status(200).json({ message: 'Event deleted successfully' });
+    } catch (error) {
+        res.status(500).send('Error deleting event');
+        console.error('Error deleting event:', error);
+    }
 })
 
 app.listen(port, () => {
