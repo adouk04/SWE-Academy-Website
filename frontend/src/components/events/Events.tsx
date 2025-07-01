@@ -9,6 +9,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import { FaCalendarAlt, FaMapMarkerAlt, FaUsers, FaClock } from 'react-icons/fa';
 import "./events.css";
 import { useAuth } from '../../context/AuthContext';
+import EventList from "./EventList";
 
 export const Events = () => {
     const user = useAuth();
@@ -131,7 +132,21 @@ export const Events = () => {
                         </div>
                     </div>
                 </Row>
+
+                <Row className="justify-content-center">
+                    <div className="formsection add-event-section text-center">
+                        <h1 className="add-event-title ">Manage Events</h1>
+                        <div className="add-event-form-container w-50 mx-auto mt-4">
+                            {eventsData.map( (e, index) => (
+                                <div className="eventlistitem" key={index}>
+                                    <EventList {...e}></EventList>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </Row>
             </Container>
+
         )
         }
 

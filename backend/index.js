@@ -56,6 +56,16 @@ app.post("/events", async (req, res) => {
     }
 });
 
+app.delete("/events", async (req, res) => {
+    try {
+        
+    } catch (error) {
+        
+    }
+
+    return
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
