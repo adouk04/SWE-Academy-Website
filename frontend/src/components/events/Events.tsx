@@ -122,7 +122,7 @@ export const Events = () => {
 
         {/* admin previl */}
 
-        { (user.currentUser?.uid === import.meta.env.VITE_ADMIN_UID) && (
+        { user.currentUser && (user.currentUser.uid === import.meta.env.VITE_ADMIN_UID) && (
             <Container className="">
                 <Row className="justify-content-center">
                     <div className="formsection add-event-section text-center">
