@@ -1,10 +1,10 @@
 export interface eventsCardProps {
-    event : String,
-    location : String,
+    event : string,
+    location : string,
     weekDay : string,
     day : string,
     month : string,
-    year : String,
+    year : string,
     image : string,
 }
 

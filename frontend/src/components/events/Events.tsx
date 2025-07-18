@@ -8,11 +8,13 @@ import type { eventsPropList } from "./event.types";
 import Carousel from 'react-bootstrap/Carousel';
 import { FaCalendarAlt, FaMapMarkerAlt, FaUsers, FaClock } from 'react-icons/fa';
 import "./events.css";
+import { useAuth } from '../../context/AuthContext';
+import EventList from "./EventList";
 
 export const Events = () => {
-
+    const user = useAuth();
+    
     const [eventsData, setEventsData] = useState<eventsPropList>(events)
-
     useEffect( () => {
         fetch("http://localhost:3000/events")
         .then(response => response.json())
@@ -119,16 +121,37 @@ export const Events = () => {
         </Container>
 
         {/* admin previl */}
-        <Container className="">
-            <Row className="justify-content-center">
-                <div className="formsection add-event-section text-center">
-                    <h1 className="add-event-title ">Add New Event</h1>
-                    <div className="add-event-form-container w-50 mx-auto mt-4">
-                        <EventForm />
+
+        { (user.currentUser?.uid === import.meta.env.VITE_ADMIN_UID) && (
+            <Container className="">
+                <Row className="justify-content-center">
+                    <div className="formsection add-event-section text-center">
+                        <h1 className="add-event-title ">Add New Event</h1>
+                        <div className="add-event-form-container w-50 mx-auto mt-4">
+                            <EventForm />
+                        </div>
                     </div>
-                </div>
-            </Row>
-        </Container>
+                </Row>
+
+                { (eventsData[0].event !== "No Current Events") && (
+                    <Row className="justify-content-center">
+                    <div className="formsection add-event-section text-center">
+                        <h1 className="add-event-title ">Manage Events</h1>
+                        <div className="add-event-form-container w-50 mx-auto mt-4">
+                            {eventsData.map( (e, index) => (
+                                <div className="eventlistitem" key={index}>
+                                    <EventList {...e}></EventList>
+                                </div>
+                            ))}
+                            </div>
+                        </div>
+                    </Row>
+                )}
+            </Container>
+
+        )
+        }
+
     </div>
   );
 };
