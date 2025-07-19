@@ -1,4 +1,3 @@
-import { Row, Col, Card } from "react-bootstrap";
 import "./googleCalendar.css"
 
 export const GoogleCalendar = () => {

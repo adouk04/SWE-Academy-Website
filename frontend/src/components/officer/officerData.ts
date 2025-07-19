@@ -31,27 +31,27 @@ export const officer25_26 = [
   },
   {
     image: DuyImg,
-    title: 'Officer',
+    title: 'Operations Lead',
     name: 'Nhat-Duy Ly',
     linkedin: 'https://www.linkedin.com/in/ndly/',
     github: 'https://github.com/notduyly'
   },
   {
     image: ZaidaanImg,
-    title: 'Officer',
+    title: 'Treasurer',
     name: 'Zaidaan Shibuya',
     linkedin: 'https://www.linkedin.com/in/zaidaan-shibuya-9a42ba237/',
   },
   {
     image: SungminImg,
-    title: 'Officer',
+    title: 'Workshop Facilitator',
     name: 'Sungmin Cha',
     linkedin: 'https://www.linkedin.com/in/sungmin-cha-401101245/',
     github: 'https://github.com/leaf482'
   },
   {
     image: SaeedImg,
-    title: 'Officer',
+    title: 'Public Outreach',
     name: 'Saeed Esparza',
     linkedin: 'https://www.linkedin.com/in/saeedesparza/',
   },
@@ -74,40 +74,40 @@ export const officer24_25 = [
   },
   {
     image: DuyImg,
-    title: 'Officer',
+    title: 'Workshop Facilitator',
     name: 'Nhat-Duy Ly',
     linkedin: 'https://www.linkedin.com/in/ndly/',
     github: 'https://github.com/notduyly'
   },
   {
     image: LwaziImg,
-    title: 'Officer',
+    title: 'Workshop Facilitator',
     name: 'Lwazi Mabota',
     linkedin: 'https://www.linkedin.com/in/lwazi-mabota1/',
     github: 'https://github.com/lwazi71'
   },
   {
     image: QuientenImg,
-    title: 'Officer',
+    title: 'Workshop Facilitator',
     name: 'Quienten Miller',
     linkedin: 'https://www.linkedin.com/in/quienten-miller/',
     github: 'https://github.com/Quienten'
   },
   {
     image: BhavImg,
-    title: 'Officer',
+    title: 'Public Outreach',
     name: 'Bhavneet Bhargava',
     linkedin: 'https://www.linkedin.com/in/bhavneetbhargava/',
   },
   {
     image: MuradImg,
-    title: 'Officer',
+    title: 'Interview Prep Lead',
     name: 'Murad Tair',
     linkedin: 'https://www.linkedin.com/in/murad-tair-b61706208/',
   },
   {
     image: ZafarImg,
-    title: 'Officer',
+    title: 'Janitor',
     name: 'Khobaib Zafar',
     linkedin: 'https://www.linkedin.com/in/khobaibzafar/',
   },
